@@ -80,7 +80,7 @@ pip install .
 
 ```bash
 # If using binary download:
-./portable-encryptor-windows.exe encrypt --input my_secret_folder --output encrypted_folder
+./portable-encryptor-linux encrypt --input my_secret_folder --output encrypted_folder
 
 # If installed via pip:
 encryptor encrypt --input my_secret_folder --output encrypted_folder
