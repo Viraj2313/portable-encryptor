@@ -144,24 +144,6 @@ The WebDecryptor (`decrypt.html`) provides a user-friendly interface for decrypt
 - Web decryption is fully client-side
 - Encrypted files are indistinguishable from random data
 
-## 🛠️ Development
-
-### Project Structure
-
-```
-portable-encryptor/
-├── src/
-│   ├── portable_encryptor/
-│   │   ├── __init__.py
-│   │   ├── cli.py
-│   │   ├── crypto.py
-│   │   └── utils.py
-│   └── decrypt.html
-├── pyproject.toml
-├── requirements.txt
-└── README.md
-```
-
 ## 🔧 Dependencies
 
 ### CLI Tool
