@@ -1,0 +1,14 @@
+[project]
+name = "portableencryptor"
+version = "0.1.0"
+dependencies = [
+    "cryptography",
+    "typer[all]"
+]
+
+[project.scripts]
+encryptor = "encryptor.cli:app"
+
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"

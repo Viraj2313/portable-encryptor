@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Web Decryptor</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <h1>🔐 Web Decryptor</h1>
+      <p>Securely decrypt your encrypted folders in the browser.</p>
+
+      <div id="drop-area" class="drop-area">
+        <p>📂 Drag and drop your encrypted folder contents here</p>
+        <small
+          >Must include: <code>manifest.json.enc</code>, <code>salt.bin</code>,
+          and encrypted <code>.enc</code> files</small
+        >
+      </div>
+
+      <div class="input-group">
+        <label for="password">Password</label>
+        <input type="password" id="password" placeholder="Enter password" />
+      </div>
+
+      <button class="btn" onclick="decryptAll()">
+        🔓 Decrypt & Download ZIP
+      </button>
+
+      <div id="status" class="status"></div>
+    </div>
+
+    <script src="decrypt.js"></script>
+  </body>
+</html>
