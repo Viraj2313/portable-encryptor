@@ -1,6 +1,7 @@
 import typer
 from encryptor.encryptor import encrypt_folder
 from encryptor.decryptor import decrypt_folder
+
 app = typer.Typer()
 
 @app.command()
@@ -14,7 +15,6 @@ def encrypt(
     """
     encrypt_folder(input, output, password)
     typer.echo("Folder encrypted successfully!")
-
 
 @app.command()
 def decrypt(
