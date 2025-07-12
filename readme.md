@@ -51,23 +51,6 @@ encrypted_folder/
 
 ### Installation
 
-#### Option 1: Download Pre-built Binary (Recommended)
-
-1. Go to [Releases](https://github.com/Viraj2313/portable-encryptor/releases)
-2. Download the file for your operating system:
-   - **Windows**: `portable-encryptor-windows.exe`
-   - **macOS**: `portable-encryptor-macos`
-   - **Linux**: `portable-encryptor-linux`
-3. Run directly - no installation needed!
-
-#### Option 2: Install via pip
-
-```bash
-pip install portableencryptor
-```
-
-#### Option 3: Build from source
-
 ```bash
 git clone https://github.com/Viraj2313/portable-encryptor.git
 cd portable-encryptor
@@ -79,24 +62,18 @@ pip install .
 **Encrypt a folder:**
 
 ```bash
-# If using binary download:
-./portable-encryptor-linux encrypt --input my_secret_folder --output encrypted_folder
-
-# If installed via pip:
 encryptor encrypt --input my_secret_folder --output encrypted_folder
 ```
 
 **Decrypt using CLI:**
 
 ```bash
-# If using binary download:
-./portable-encryptor-linux decrypt encrypted_folder decrypted_output
-
+encryptor decrypt encrypted_folder decrypted_output
 ```
 
 **Decrypt using browser:**
 
-1. Visit: https://protable-decryptor.duckdns.org
+1. visit: https://protable-decryptor.duckdns.org
 2. Drag and drop the encrypted folder contents
 3. Enter your password
 4. Click "Decrypt & Download ZIP"
@@ -183,7 +160,7 @@ The WebDecryptor (`decrypt.html`) provides a user-friendly interface for decrypt
 
 - **Sensitive document backup**: Encrypt personal documents before cloud storage
 - **Secure file sharing**: Share encrypted folders via any medium
-- **Remote access**: Decrypt files on devices where you can't install software
+- **Remote access**: Descrypt files on devices where you can't install software
 - **Mobile decryption**: Access encrypted files on phones and tablets
 - **Cross-platform workflows**: Encrypt on one OS, decrypt on another
 
