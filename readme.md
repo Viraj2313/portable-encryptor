@@ -52,7 +52,7 @@ encrypted_folder/
 ### Installation
 
 ```bash
-git clone https://github.com/yourusername/portable-encryptor.git
+git clone https://github.com/Viraj2313/portable-encryptor.git
 cd portable-encryptor
 pip install .
 ```
