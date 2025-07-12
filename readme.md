@@ -162,18 +162,6 @@ portable-encryptor/
 └── README.md
 ```
 
-### Running Tests
-
-```bash
-pytest tests/
-```
-
-### Building Distribution
-
-```bash
-python setup.py sdist bdist_wheel
-```
-
 ## 🔧 Dependencies
 
 ### CLI Tool
