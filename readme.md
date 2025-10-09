@@ -1,10 +1,10 @@
-# 🔐 PortableEncryptor
+# PortableEncryptor
 
 **Secure folder encryption with cross-device decryption**
 
 PortableEncryptor is a dual-purpose encryption tool that combines the security of local CLI encryption with the convenience of browser-based decryption. Encrypt your folders locally, then decrypt them anywhere—no app installation required.
 
-## 🎯 Why PortableEncryptor?
+## Why PortableEncryptor?
 
 **The main purpose** of this tool is to solve a common problem: **securely storing sensitive files on cloud drives** while maintaining easy access across all your devices.
 
@@ -17,21 +17,21 @@ With PortableEncryptor, you can:
 
 Perfect for users who want cloud storage convenience without sacrificing privacy or security.
 
-## ✨ Features
+## Features
 
-- **🖥️ CLI encryption**: Fast, secure local folder encryption
-- **🌐 Web decryption**: Decrypt on any device with just a browser
-- **🔐 Privacy-first**: Filenames, metadata, and content all encrypted
-- **📦 Portable output**: Generates standard ZIP files for easy sharing
+- **CLI encryption**: Fast, secure local folder encryption
+- **Web decryption**: Decrypt on any device with just a browser
+- **Privacy-first**: Filenames, metadata, and content all encrypted
+- **Portable output**: Generates standard ZIP files for easy sharing
 
-## 🏗️ How It Works
+## How It Works
 
 1. **Encrypt locally** using the Python CLI tool
 2. **Share the encrypted folder** via any method (cloud, USB, etc.)
 3. **Decrypt anywhere** using the browser-based WebDecryptor
 4. **Download as ZIP** containing your original files
 
-## 📁 Encrypted Folder Structure
+## Encrypted Folder Structure
 
 ```
 encrypted_folder/
@@ -42,7 +42,7 @@ encrypted_folder/
 └── ...
 ```
 
-## 🚀 Quick Start
+## Quick Start
 
 ### Prerequisites
 
@@ -78,7 +78,7 @@ encryptor decrypt encrypted_folder decrypted_output
 3. Enter your password
 4. Click "Decrypt & Download ZIP"
 
-## 📖 Detailed Usage
+## Detailed Usage
 
 ### CLI Commands
 
@@ -120,7 +120,7 @@ The WebDecryptor (`decrypt.html`) provides a user-friendly interface for decrypt
 - `salt.bin`
 - All `.enc` files from the encrypted folder
 
-## 🔒 Security Details
+## Security Details
 
 ### Encryption Specifications
 
@@ -144,7 +144,7 @@ The WebDecryptor (`decrypt.html`) provides a user-friendly interface for decrypt
 - Web decryption is fully client-side
 - Encrypted files are indistinguishable from random data
 
-## 🔧 Dependencies
+## Dependencies
 
 ### CLI Tool
 
@@ -156,7 +156,7 @@ The WebDecryptor (`decrypt.html`) provides a user-friendly interface for decrypt
 
 - No dependencies - uses native Web Crypto API
 
-## 📋 Use Cases
+## Use Cases
 
 - **Sensitive document backup**: Encrypt personal documents before cloud storage
 - **Secure file sharing**: Share encrypted folders via any medium
@@ -164,7 +164,7 @@ The WebDecryptor (`decrypt.html`) provides a user-friendly interface for decrypt
 - **Mobile decryption**: Access encrypted files on phones and tablets
 - **Cross-platform workflows**: Encrypt on one OS, decrypt on another
 
-## 🤝 Contributing
+## Contributing
 
 1. Fork the repository
 2. Create a feature branch (`git checkout -b feature/amazing-feature`)
