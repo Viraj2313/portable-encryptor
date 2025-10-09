@@ -1,4 +1,4 @@
-name: Deploy PortableEncryptor to VM
+name: Deploy Portable Decryptor to VM
 
 on:
   push:
@@ -14,16 +14,18 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Set up Node.js
+      - name: Install Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: "18"
 
-      - name: Install dependencies and build frontend
-        working-directory: web-decryptor
-        run: |
-          npm ci
-          npm run build
+      - name: Install dependencies
+        working-directory: ./web-decryptor
+        run: npm install
+
+      - name: Build project
+        working-directory: ./web-decryptor
+        run: npm run build
 
       - name: Set up SSH key
         uses: webfactory/ssh-agent@v0.5.3
@@ -35,11 +37,11 @@ jobs:
           mkdir -p ~/.ssh
           ssh-keyscan -H ${{ secrets.HOST }} >> ~/.ssh/known_hosts
 
-      - name: Deploy built files via SCP
+      - name: Deploy to VM via SCP
         uses: appleboy/scp-action@v0.1.4
         with:
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USERNAME }}
           key: ${{ secrets.PRIVATE_KEY }}
           source: "web-decryptor/dist/*"
-          target: "/var/www/html/portable-encryptor"
+          target: "/var/www/html/portable-decryptor"
