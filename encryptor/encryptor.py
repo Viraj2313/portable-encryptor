@@ -22,6 +22,6 @@ def encrypt_folder(input_path, output_path, password):
                 "iv": iv.hex()
             })
 
-    build_manifest(manifest, key, salt, output_path)
+    build_manifest(manifest, key, output_path)
     with open(os.path.join(output_path, "salt.bin"), "wb") as f:
         f.write(salt)
