@@ -2,7 +2,7 @@
 
 **Secure folder encryption with cross-device decryption**
 
-PortableEncryptor is a dual-purpose encryption tool that combines the security of local CLI encryption with the convenience of browser-based decryption. Encrypt your folders locally, then decrypt them anywhere—no app installation required.
+PortableEncryptor is a dual-purpose encryption tool that combines the security of local CLI encryption with the convenience of browser-based decryption. Encrypt your folders locally, then decrypt them anywhere no app installation required.
 
 ## Why PortableEncryptor?
 
@@ -12,7 +12,7 @@ With PortableEncryptor, you can:
 
 - **Encrypt your folders locally** using the CLI tool
 - **Upload encrypted folders to any cloud service** (Google Drive, Dropbox, OneDrive, etc.) without privacy concerns
-- **Decrypt on any device** using just a web browser—no software installation needed
+- **Decrypt on any device** using just a web browser no software installation needed
 - **Access your files anywhere** while keeping them completely secure in the cloud
 
 Perfect for users who want cloud storage convenience without sacrificing privacy or security.
