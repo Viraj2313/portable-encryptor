@@ -1,0 +1,12 @@
+version: "3.8"
+services:
+  web:
+    build: .
+    container_name: portable_decryptor_nginx
+    restart: always
+    networks:
+      - gateway_net
+
+networks:
+  gateway_net:
+    external: true
