@@ -36,7 +36,7 @@ jobs:
       - name: Build and push Docker image
         uses: docker/build-push-action@v5
         with:
-          context: ./web-decryptor
+          context: .
           push: true
           tags: viraj231/portable-decryptor:latest
 
