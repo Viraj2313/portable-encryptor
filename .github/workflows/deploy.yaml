@@ -7,59 +7,51 @@ on:
   workflow_dispatch:
 
 jobs:
-  deploy:
+  build_and_deploy:
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Install Node.js
+      - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: "18"
 
       - name: Install dependencies
         working-directory: ./web-decryptor
-        run: npm install
+        run: npm ci
 
       - name: Build project
         working-directory: ./web-decryptor
         run: npm run build
 
-      - name: Prepare Server Directory
-        uses: appleboy/ssh-action@v1.0.0
+      - name: Login to Docker Hub
+        uses: docker/login-action@v3
         with:
-          host: ${{ secrets.HOST }}
-          username: ${{ secrets.USERNAME }}
-          key: ${{ secrets.PRIVATE_KEY }}
-          script: mkdir -p /home/ubuntu/portable-decryptor
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
 
-      - name: Copy files to VM
-        uses: appleboy/scp-action@v0.1.4
+      - name: Build and push Docker image
+        uses: docker/build-push-action@v5
         with:
-          host: ${{ secrets.HOST }}
-          username: ${{ secrets.USERNAME }}
-          key: ${{ secrets.PRIVATE_KEY }}
-          source: "web-decryptor/dist/,Dockerfile,nginx.conf,docker-compose.yml"
-          target: "/home/ubuntu/portable-decryptor"
+          context: ./web-decryptor
+          push: true
+          tags: viraj231/portable-decryptor:latest
 
-      - name: Deploy with Docker
-        uses: appleboy/ssh-action@v1.0.0
+      - name: Setup SSH
+        uses: webfactory/ssh-agent@v0.5.3
         with:
-          host: ${{ secrets.HOST }}
-          username: ${{ secrets.USERNAME }}
-          key: ${{ secrets.PRIVATE_KEY }}
-          script: |
+          ssh-private-key: ${{ secrets.PRIVATE_KEY }}
+
+      - name: Add VM to known hosts
+        run: ssh-keyscan -H ${{ secrets.HOST }} >> ~/.ssh/known_hosts
+
+      - name: Deploy on VM
+        run: |
+          ssh ubuntu@${{ secrets.HOST }} << EOF
             cd /home/ubuntu/portable-decryptor
-
-            if [ -d "web-decryptor/dist" ]; then
-              rm -rf dist
-              mv web-decryptor/dist .
-              rm -rf web-decryptor
-            fi
-
-            docker network create gateway_net || true
-
-            docker compose down
-            docker compose up -d --build
+            docker compose pull
+            docker compose up -d
+          EOF

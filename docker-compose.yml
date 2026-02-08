@@ -1,9 +1,12 @@
 version: "3.8"
+
 services:
   web:
-    build: .
+    image: viraj231/portable-decryptor:latest
     container_name: portable_decryptor_nginx
     restart: always
+    ports:
+      - "80:80"
     networks:
       - gateway_net
 
