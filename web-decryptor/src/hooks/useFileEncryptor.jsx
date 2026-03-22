@@ -113,7 +113,9 @@ export function useFileEncryptor() {
       (f) => f.name.toLowerCase() === "manifest.json.enc"
     );
     const dataFiles = files.filter(
-      (f) => f.name.endsWith(".enc") && f.name !== "manifest.json.enc"
+      (f) =>
+        f.name.toLowerCase().endsWith(".enc") &&
+        f.name.toLowerCase() !== "manifest.json.enc"
     );
 
     if (!manifestFile || !saltFile || dataFiles.length === 0) {
@@ -135,7 +137,10 @@ export function useFileEncryptor() {
 
     const zip = new JSZip();
     for (const entry of manifest.files) {
-      const encFile = dataFiles.find((f) => f.name === entry.encrypted_name);
+      const encBaseName = entry.encrypted_name.split("/").pop().split("\\").pop();
+      const encFile = dataFiles.find(
+        (f) => f.name === entry.encrypted_name || f.name === encBaseName
+      );
       if (!encFile) continue;
 
       const encryptedData = await encFile.arrayBuffer();

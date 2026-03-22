@@ -216,13 +216,11 @@ export default function MainComponent() {
       );
 
       for (const entry of manifest.files) {
-        const encFile = dataFiles.find((f) => f.name === entry.encrypted_name);
-        if (!encFile) {
-          console.warn(
-            `File from manifest not found in selection: ${entry.encrypted_name}`
-          );
-          continue;
-        }
+        const encBaseName = entry.encrypted_name.split("/").pop().split("\\").pop();
+        const encFile = dataFiles.find(
+          (f) => f.name === entry.encrypted_name || f.name === encBaseName
+        );
+        if (!encFile) continue;
 
         const encryptedData = await encFile.arrayBuffer();
         const iv = hexToBytes(entry.iv);
